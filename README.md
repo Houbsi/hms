@@ -14,7 +14,7 @@ This is before anything else a learning experience, so please stay nice.
 - [ ] CI/CD Pipeline.
   - [ ] Demo Page
 
-## Do i code everything myself?
+## Do I code everything myself?
 
 - FilamentPHP
 
