@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -13,3 +14,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 require __DIR__.'/auth.php';
+
+Route::get('/{language}/{slug}', [PageController::class, 'show']);
+
+Route::get('/{slug}', [PageController::class, 'show1']);
