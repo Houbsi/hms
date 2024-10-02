@@ -8,15 +8,19 @@ This is before anything else a learning experience, so please stay nice.
 ## Plan
 
 - [ ] Page System
-- [ ] Blog System with Comments
-- [ ] Comment Moderation System
-- [ ] Making it multilingual?
+  - [ ] Adding some more Comfort of Life Features into the Manage UI
+  - [ ] Slug auto generate
+  - [ ] Adding Navigation to the Nobody Views
+- [ ] Blog System
+- [ ] Rights Management
+- [ ] Comment System
+  - [ ] Comment Moderation System
 - [ ] CI/CD Pipeline.
   - [ ] Demo Page
 
-## Do I code everything myself?
+## Future Maybe Additions?
 
-- FilamentPHP
+- [ ] Multilingual
 
 ## License
 
