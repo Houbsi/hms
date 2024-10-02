@@ -7,6 +7,9 @@ use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Volt\Volt;
 
+/** @noinspection LaravelFunctionsInspection
+ * @noinspection UnknownInspectionInspection
+ */
 if(env('HMS_LOGIN')) {
     test('reset password link screen can be rendered', function () {
         $response = $this->get('/forgot-password');
@@ -16,7 +19,7 @@ if(env('HMS_LOGIN')) {
             ->assertStatus(200);
     });
 
-    test('reset password link can be requested', function () {
+    test('reset password link can be requested', static function () {
         Notification::fake();
 
         $user = User::factory()->create();
@@ -48,7 +51,7 @@ if(env('HMS_LOGIN')) {
         });
     });
 
-    test('password can be reset with valid token', function () {
+    test('password can be reset with valid token', static function () {
         Notification::fake();
 
         $user = User::factory()->create();
@@ -57,7 +60,7 @@ if(env('HMS_LOGIN')) {
             ->set('email', $user->email)
             ->call('sendPasswordResetLink');
 
-        Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+        Notification::assertSentTo($user, ResetPassword::class, static function ($notification) use ($user) {
             $component = Volt::test('pages.auth.reset-password', ['token' => $notification->token])
                 ->set('email', $user->email)
                 ->set('password', 'password')
