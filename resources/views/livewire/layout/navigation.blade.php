@@ -26,6 +26,9 @@ $logout = function (Logout $logout) {
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('filament.manage.pages.dashboard')" wire:navigate>
+                        {{ __('Site Manager') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -45,11 +48,12 @@ $logout = function (Logout $logout) {
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-not-link>
+                            <div class="font-medium text-sm text-gray-500">{{ auth()->user()->email }}</div>
+                        </x-dropdown-not-link>
+
                         <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Profile') }}
-                        </x-dropdown-link>
-                        <x-dropdown-link :href="route('filament.manage.pages.dashboard')" wire:navigate>
-                                {{ __('Site Manager') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -80,13 +84,15 @@ $logout = function (Logout $logout) {
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('filament.manage.pages.dashboard')" wire:navigate>
+                {{ __('Site Manager') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200" x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
-                <div class="font-medium text-sm text-gray-500">{{ auth()->user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
