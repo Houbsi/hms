@@ -5,9 +5,8 @@ use App\Livewire\Actions\Logout;
 $logout = function (Logout $logout) {
     $logout();
 
-    $this->redirect('/', navigate: true);
+    $this->redirect("/", navigate: true);
 };
-
 ?>
 
 <nav x-data="{ open: false }" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
@@ -48,6 +47,9 @@ $logout = function (Logout $logout) {
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile')" wire:navigate>
                             {{ __('Profile') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('filament.manage.pages.dashboard')" wire:navigate>
+                                {{ __('Site Manager') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
